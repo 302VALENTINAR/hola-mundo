@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, aprobados = 0, reprobados = 0;
+    float nota, suma = 0, promedio;
+    float mayor, menor;
+
+    cout << "Ingrese la cantidad de estudiantes: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        cout << "Ingrese la nota del estudiante " << i << ": ";
+        cin >> nota;
+
+        suma += nota;
+
+        if (i == 1) {
+            mayor = nota;
+            menor = nota;
+        } else {
+            if (nota > mayor) {
+                mayor = nota;
+            }
+            if (nota < menor) {
+                menor = nota;
+            }
+        }
+
+        if (nota >= 60) {
+            aprobados++;
+        } else {
+            reprobados++;
+        }
+    }
+
+    promedio = suma / N;
+
+    cout << "\nPromedio: " << promedio << endl;
+    cout << "Aprobados: " << aprobados << endl;
+    cout << "Reprobados: " << reprobados << endl;
+    cout << "Nota más alta: " << mayor << endl;
+    cout << "Nota más baja: " << menor << endl;
+
+    return 0;
+}
